@@ -1,3 +1,13 @@
 body {
   line-height: 1.5;
+  
+}
+table {
+  border-collapse: collapse;
+  border: 2px solid green; /* 外枠 */
+}
+table th, table td {
+  border-style: solid dotted;/* 線種 */
+  border-width: 2px; /* 線の太さ */
+  border-color: green; /* 線色 */
 }
