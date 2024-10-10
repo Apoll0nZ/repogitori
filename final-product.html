@@ -26,10 +26,11 @@
       <th colspan="2" id="LEWIS">LEWIS</th>
       <th colspan="4" id="MNS">MNS</th>
       <th>P</th>
+      <th colspan="3" id="TestResult">Test Result</th>
     </tr>
   </thead>
   <tbody id="mytbody">
-    <tr class="contents" id="contents">
+    <tr class="bloddyType" id="bloddyType">
       <td>Cell#</td>
       <td id="D">D</td>
       <td id="C">C</td>
@@ -57,169 +58,167 @@
       <td id="M">M</td>
       <td id="N">N</td>
       <td id="P1">P<sub>1</sub></td>
+      <td id="Sal">Sal</td>
+      <td id="IAT">IAT</td>
+      <td id="Enzyme">Enzyme</td>
     </tr>
     <tr class="inputBox1" id="inputBox1">
       <td>1</td>
-      <td><select name="Dselect">
+      <td><select id="Dselect">
         <option value=""></option>
-        <option value="+">+</option>
+        <option value="1">+</option>
         <option value="0">-</option>
-        <option value="NT">NT</option>
-      <td><select name="Cselect">
+      <td><select id="Cselect">
         <option value=""></option>
-        <option value="+">+</option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Eselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="cselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="eselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="fselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Cwselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Vselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Kselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="kselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="kpaselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="kpbselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Jsaselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Jsbselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Fyaselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Fybselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Jkaselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Jkbselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Xgaselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Leaselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Lebselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Sselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="sselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Mselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Nselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="P1select">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Salselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="IATselect">
+        <option value=""></option>
+        <option value="1">+</option>
+        <option value="0">-</option>
+      </select></td>
+      <td><select id="Enzselect">
+        <option value=""></option>
+        <option value="1">+</option>
         <option value="0">-</option>
         <option value="NT">NT</option>
       </select></td>
-      <td><select name="Eselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="cselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="eselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="fselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Cwselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Vselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Kselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="kselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="kpaselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="kpbselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Jsaselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Jsbselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Fyaselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Fybselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Jkaselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Jkbselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Xgaselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Leaselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Lebselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Sselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="sselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Mselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="Nselect">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-      <td><select name="P1select">
-        <option value=""></option>
-        <option value="+">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-    </tr>
-    
-  </tbody>
-  
+    </tr>   
+  </tbody> 
 </table>
+<button onclick="pluscloneRow()">+</button>
+<table class="myTable" id="myTable">
+  </table>
+<div>可能性が高い</div>
+<div id="important"></div>
+<div >否定できない</div>
+<div id="nDenied"></div>
 <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ここから上に、ブラウザに表示したい内容を記述する ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
 <div>
 
@@ -228,8 +227,8 @@
 
 
     <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 下の2行はHTMLとJavaScriptファイルを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/final-product.js"></script>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="final-product.js"></script>
     <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 上の2行はHTMLとJavaScriptファイルを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
   </body>
 </html>
