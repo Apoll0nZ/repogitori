@@ -1,234 +1,230 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>test</title>
 
-    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 下の2行はHTMLとCSSを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
-    <link rel="stylesheet" href="final-product-reset.css" />
-    <link rel="stylesheet" href="final-product.css" />
-    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 上の2行はHTMLとCSSを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>test</title>
 
-  <body>
-    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ここから下に、ブラウザに表示したい内容を記述する ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
-<h1>test</h1>
-<table class="myTable" id="myTable">
-  <thead>
-    <tr class="heading" id="heading">
-      <th>&nbsp;</th>
-      <th colspan="8" id="Rh-hr">Rh-hr</th>
-      <th colspan="6" id="KELL">KELL</th>
-      <th colspan="2" id="DUFFY">DUFFY</th>
-      <th colspan="2" id="KIDD">KIDD</th>
-      <th id="SexLinked">SexLinked</th>
-      <th colspan="2" id="LEWIS">LEWIS</th>
-      <th colspan="4" id="MNS">MNS</th>
-      <th>P</th>
-      <th colspan="3" id="TestResult">Test Result</th>
-    </tr>
-  </thead>
-  <tbody id="mytbody">
-    <tr class="bloddyType" id="bloddyType">
-      <td>Cell#</td>
-      <td id="D">D</td>
-      <td id="C">C</td>
-      <td id="E">E</td>
-      <td id="c">c</td>
-      <td id="e">e</td>
-      <td id="f">f</td>
-      <td id="Cw">C<sup>w</sup></td>
-      <td id="V">V</td>
-      <td id="K">K</td>
-      <td id="k">k</td>
-      <td id="kpa">kp<sup>a</sup></td>
-      <td id="kpb">kp<sup>b</sup></td>
-      <td id="Jsa">Js<sup>a</sup></td>
-      <td id="Jsb">Js<sup>b</sup></td>
-      <td id="Fya">Fy<sup>a</sup></td>
-      <td id="Fyb">Fy<sup>b</sup></td>
-      <td id="Jka">Jk<sup>a</sup></td>
-      <td id="Jkb">Jk<sup>b</sup></td>
-      <td id="Xga">Xg<sup>a</sup></td>
-      <td id="Lea">Le<sup>a</sup></td>
-      <td id="Leb">Le<sup>b</sup></td>
-      <td id="S">S</td>
-      <td id="s">s</td>
-      <td id="M">M</td>
-      <td id="N">N</td>
-      <td id="P1">P<sub>1</sub></td>
-      <td id="Sal">Sal</td>
-      <td id="IAT">IAT</td>
-      <td id="Enzyme">Enzyme</td>
-    </tr>
-    <tr class="inputBox1" id="inputBox1">
-      <td>1</td>
-      <td><select id="Dselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      <td><select id="Cselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Eselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="cselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="eselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="fselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Cwselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Vselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Kselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="kselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="kpaselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="kpbselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Jsaselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Jsbselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Fyaselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Fybselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Jkaselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Jkbselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Xgaselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Leaselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Lebselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Sselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="sselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Mselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Nselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="P1select">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Salselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="IATselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-      </select></td>
-      <td><select id="Enzselect">
-        <option value=""></option>
-        <option value="1">+</option>
-        <option value="0">-</option>
-        <option value="NT">NT</option>
-      </select></td>
-    </tr>   
-  </tbody> 
-</table>
-<button onclick="pluscloneRow()">+</button>
-<table class="myTable" id="myTable">
+  <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 下の2行はHTMLとCSSを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+  <link rel="stylesheet" href="final-product-reset.css" />
+  <link rel="stylesheet" href="final-product.css" />
+  <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 上の2行はHTMLとCSSを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+</head>
+
+<body>
+  <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ここから下に、ブラウザに表示したい内容を記述する ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+  <h1>test</h1>
+  <table class="myTable" id="myTable">
+    <thead>
+      <tr class="heading" id="heading">
+        <th>&nbsp;</th>
+        <th colspan="8" id="Rh-hr">Rh-hr</th>
+        <th colspan="6" id="KELL">KELL</th>
+        <th colspan="2" id="DUFFY">DUFFY</th>
+        <th colspan="2" id="KIDD">KIDD</th>
+        <th id="SexLinked">SexLinked</th>
+        <th colspan="2" id="LEWIS">LEWIS</th>
+        <th colspan="4" id="MNS">MNS</th>
+        <th>P</th>
+        <th colspan="3" id="TestResult">Test Result</th>
+      </tr>
+    </thead>
+    <tbody id="mytbody">
+      <tr class="bloddyType" id="bloddyType">
+        <td>Cell#</td>
+        <td id="D">D</td>
+        <td id="C">C</td>
+        <td id="E">E</td>
+        <td id="c">c</td>
+        <td id="e">e</td>
+        <td id="f">f</td>
+        <td id="Cw">C<sup>w</sup></td>
+        <td id="V">V</td>
+        <td id="K">K</td>
+        <td id="k">k</td>
+        <td id="kpa">kp<sup>a</sup></td>
+        <td id="kpb">kp<sup>b</sup></td>
+        <td id="Jsa">Js<sup>a</sup></td>
+        <td id="Jsb">Js<sup>b</sup></td>
+        <td id="Fya">Fy<sup>a</sup></td>
+        <td id="Fyb">Fy<sup>b</sup></td>
+        <td id="Jka">Jk<sup>a</sup></td>
+        <td id="Jkb">Jk<sup>b</sup></td>
+        <td id="Xga">Xg<sup>a</sup></td>
+        <td id="Lea">Le<sup>a</sup></td>
+        <td id="Leb">Le<sup>b</sup></td>
+        <td id="S">S</td>
+        <td id="s">s</td>
+        <td id="M">M</td>
+        <td id="N">N</td>
+        <td id="P1">P<sub>1</sub></td>
+        <td id="Sal">Sal</td>
+        <td id="IAT">IAT</td>
+      </tr>
+      <tr class="inputBox1" id="inputBox1">
+        <td>1</td>
+        <td><select id="Dselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+        <td><select id="Cselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Eselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="cselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="eselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="fselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Cwselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Vselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Kselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="kselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="kpaselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="kpbselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Jsaselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Jsbselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Fyaselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Fybselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Jkaselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Jkbselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Xgaselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Leaselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Lebselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Sselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="sselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Mselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Nselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="P1select">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="Salselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+        <td><select id="IATselect">
+            <option value=""></option>
+            <option value="+">+</option>
+            <option value="0">0</option>
+          </select></td>
+      </tr>
+    </tbody>
   </table>
-<div>可能性が高い</div>
-<div id="important"></div>
-<div >否定できない</div>
-<div id="nDenied"></div>
-<!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ここから上に、ブラウザに表示したい内容を記述する ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
-<div>
+  <button onclick="pluscloneRow()">+</button>
+  <div>
+    <button id="Result">結果を確定させる</button> 
+  </div>
+  <div>可能性が高い</div>
+  <div id="important"></div>
+  <div>否定できない</div>
+  <div id="nDenied"></div>
+  <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ ここから上に、ブラウザに表示したい内容を記述する ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
+  <div>
 
-</div>
+  </div>
 
 
 
-    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 下の2行はHTMLとJavaScriptファイルを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
-    <script src="jquery-3.7.1.min.js"></script>
-    <script src="final-product.js"></script>
-    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 上の2行はHTMLとJavaScriptファイルを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
-  </body>
+  <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 下の2行はHTMLとJavaScriptファイルを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="final-product.js"></script>
+  <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 上の2行はHTMLとJavaScriptファイルを繋ぐ役割を果たしています ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+</body>
+
 </html>
