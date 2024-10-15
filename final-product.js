@@ -65,7 +65,7 @@ $('#Result').on('click', function () {
         targetArrays.forEach((targetArray, targetIndex) => {
             const targetLength = targetArray.length;
             const targetElements = [...targetArray];
-            for (let i = 0; i < array.length - 2 - targetIndex; i++) {
+            for (let i = 0; i < array.length - 2; i++) {
                 const currentArray = array[i];
                 // 要素数が一致しない場合はスキップ
                 if (currentArray.length !== targetLength) continue;
@@ -88,7 +88,7 @@ $('#Result').on('click', function () {
         importantDiv.textContent = [...new Set(matchingColumns)].join(', ');
         
     }
-    const columnNames = ['Cell','D','C','E','c','e','f','Cw','V','K','k','kpa','kpb','Jsa','Jsb','Fya','Fyb','Jka','Jkb','Xga','Lea','Leb','S','s','M','N','P1','Sal','IAT'];
+    const columnNames = ['Cell','D','C','E','c','e','f','Cw','V','K','k','kpa','kpb','Jsa','Jsb','Fya','Fyb','Jka','Jkb','Xga','Lea','Leb','S','s','M','N','P1'];
     // 関数を呼び出す
     findMatchingParentIndex(selectedValuesByColumn, columnNames);
     
