@@ -2,24 +2,6 @@ window.onload = function () {
     cloneRow(10); // 初期表示で10行複製
 };
 
-$(function () {
-    $(".inputBox1 td").each(function () {
-        const $td = $(this);
-        const $select = $td.find("select");
-        const inputId = $select.attr("id") + "Input";
-        // 既にinput要素が存在する場合、処理をスキップ
-        if ($td.find(`#${inputId}`).length > 0) {
-            return;
-        }
-        $select.before(`<input type="text" id="${inputId}">`);
-        $(`#${inputId}`).autocomplete({
-            source: ["+", "0"],
-            select: function (event, ui) {
-                $select.val(ui.item.value);
-            }
-        });
-    });
-});
 function cloneRow(numberOfRows) {
     const table = document.getElementById("myTable");
     const lastRow = table.rows[table.rows.length - 1];
@@ -74,11 +56,11 @@ $('#Result').on('click', function () {
 
     console.log(selectedValuesByColumn);
 
-    function findMatchingParentIndex(array) {
+    function findMatchingParentIndex(array, columnNames) {
         // 比較対象となる配列 (27番目と28番目) を取得
         const targetArrays = [array[27], array[28]];
-        // 一致する親配列のインデックスを格納する配列
-        const matchingIndices = [];
+        // 一致する親配列のインデックスと対応する列名を格納する配列
+        const matchingColumns = [];
         // 各ターゲット配列に対して、すべての要素と比較 (0番目から26番目まで)
         targetArrays.forEach((targetArray, targetIndex) => {
             const targetLength = targetArray.length;
@@ -95,18 +77,19 @@ $('#Result').on('click', function () {
                         break;
                     }
                 }
-                // すべての要素が一致した場合、インデックスを記録
+                // 一致した場合、対応する列名を格納
                 if (isMatch) {
-                    matchingIndices.push(i + 1); // インデックスは1始まりなので+1する
+                    matchingColumns.push(columnNames[i]);
                 }
             }
         });
         // 一致する親配列の番号を表示
         const importantDiv = document.getElementById('important');
-        importantDiv.textContent = matchingIndices.join(', ');
+        importantDiv.textContent = [...new Set(matchingColumns)].join(', ');
+        
     }
+    const columnNames = ['Cell','D','C','E','c','e','f','Cw','V','K','k','kpa','kpb','Jsa','Jsb','Fya','Fyb','Jka','Jkb','Xga','Lea','Leb','S','s','M','N','P1','Sal','IAT'];
     // 関数を呼び出す
-    findMatchingParentIndex(selectedValuesByColumn);
-
-
+    findMatchingParentIndex(selectedValuesByColumn, columnNames);
+    
 });
