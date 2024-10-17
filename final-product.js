@@ -53,14 +53,14 @@ $('#Result').on('click', function () {
             selectedValuesByColumn[i].push(select.value);
         });
     }
-
     console.log(selectedValuesByColumn);
 
+    // 一致する親配列のインデックスと対応する列名を格納する配列
+    const matchingColumns = [];
     function findMatchingParentIndex(array, columnNames) {
         // 比較対象となる配列 (27番目と28番目) を取得
         const targetArrays = [array[27], array[28]];
-        // 一致する親配列のインデックスと対応する列名を格納する配列
-        const matchingColumns = [];
+        
         // 各ターゲット配列に対して、すべての要素と比較 (0番目から26番目まで)
         targetArrays.forEach((targetArray, targetIndex) => {
             const targetLength = targetArray.length;
@@ -86,10 +86,55 @@ $('#Result').on('click', function () {
         // 一致する親配列の番号を表示
         const importantDiv = document.getElementById('important');
         importantDiv.textContent = [...new Set(matchingColumns)].join(', ');
-        
+
     }
-    const columnNames = ['Cell','D','C','E','c','e','f','Cw','V','K','k','kpa','kpb','Jsa','Jsb','Fya','Fyb','Jka','Jkb','Xga','Lea','Leb','S','s','M','N','P1'];
+    const columnNames = ['Cell', 'D', 'C', 'E', 'c', 'e', 'f', 'Cw', 'V', 'K', 'k', 'kpa', 'kpb', 'Jsa', 'Jsb', 'Fya', 'Fyb', 'Jka', 'Jkb', 'Xga', 'Lea', 'Leb', 'S', 's', 'M', 'N', 'P1'];
     // 関数を呼び出す
     findMatchingParentIndex(selectedValuesByColumn, columnNames);
-    
+    const notMatchingColumns = [];
+    function findMatchingParents(parentArray, columnNames, skipPairs) {
+        const targetArray = parentArray[28];
+        const matchingPairs = [];
+        for (let [i, k] of skipPairs) {
+            const subArrayLength = Math.min(targetArray.length, parentArray[i].length, parentArray[k].length);
+            for (let j = 0; j < subArrayLength; j++) {
+                if (targetArray[j] === "0" && parentArray[i][j] === "+" && parentArray[k][j] === "+") {
+                    matchingPairs.push([i, j])                    
+                    matchingPairs.push([k, j])                    
+                }
+            }
+        }
+        for (let i = 0; i < 27; i++) {
+            const subArrayLength = Math.min(targetArray.length, parentArray[i].length);
+            for (let j = 0; j < subArrayLength; j++) {
+                // マッチング済みかどうか確認
+                if (matchingPairs.some(pair => pair[0] === i && pair[1] === j)) {
+                    continue; // マッチング済みならスキップ
+                }
+                if (targetArray[j] === "0" && parentArray[i][j] === "+") {
+                    matchingPairs.push([i, j]);
+                    notMatchingColumns.push(columnNames[i]);
+                    break;
+                }
+            }
+        }
+    }
+    // スキップするペアの配列
+    const skipPairs = [[2, 4], [3, 5], [15, 16], [17, 18], [22, 23], [24, 25]];
+    // 関数の呼び出し
+    const result = findMatchingParents(selectedValuesByColumn, columnNames, skipPairs);
+
+    // 新しい配列を作成し、columnNames の要素を全てコピー
+    const remainingColumns = [...columnNames];
+    // 0番目の要素を削除
+    remainingColumns.splice(0, 1);
+    // notMatchingColumns の要素を新しい配列から削除
+    remainingColumns.splice(0, remainingColumns.length, ...remainingColumns.filter(column => !notMatchingColumns.includes(column)));
+    // matchingColumns の要素を新しい配列から削除
+    remainingColumns.splice(0, remainingColumns.length, ...remainingColumns.filter(column => !matchingColumns.includes(column)));
+    // 残った要素を結合し、重複を削除
+    const uniqueRemainingColumns = [...new Set(remainingColumns)];
+    // HTML の div に表示
+    const nDeniedDiv = document.getElementById('nDenied');
+    nDeniedDiv.textContent = uniqueRemainingColumns.join(', ');
 });
