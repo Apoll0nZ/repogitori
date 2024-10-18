@@ -15,6 +15,18 @@ function cloneRow(numberOfRows) {
         selectElements.forEach(select => {
             select.id = select.id + (i + 2);
         });
+        //1入力で+選択
+        const selectedElements = document.querySelectorAll('.selected');
+        selectedElements.forEach(select => {
+            select.addEventListener('keydown', function (event) {
+                if (event.key === '1') {
+                    const plusOption = this.querySelector('option[value="+"]');
+                    if (plusOption) {
+                        plusOption.selected = true;
+                    }
+                }
+            });
+        });
         table.appendChild(newRow);
     }
 };
@@ -23,11 +35,23 @@ function pluscloneRow() {
     const lastRow = table.rows[table.rows.length - 1];
     const lastCellNumber = parseInt(lastRow.cells[0].textContent);
     const newRow = lastRow.cloneNode(true);
-    newRow.cells[0].textContent = lastCellNumber + 1; // セル番号を12から順に増やす
+    //newRow.cells[0].textContent = lastCellNumber + 1; // セル番号を12から順に増やす
     const selectElements = newRow.querySelectorAll("select");
     selectElements.forEach(select => {
         // selectのidを12から順に増やす
         select.id = select.id.substring(0, 7) + (lastCellNumber + 1);
+    });
+    //1入力で+選択
+    const selectedElements = document.querySelectorAll('.selected');
+    selectedElements.forEach(select => {
+        select.addEventListener('keydown', function (event) {
+            if (event.key === '1') {
+                const plusOption = this.querySelector('option[value="+"]');
+                if (plusOption) {
+                    plusOption.selected = true;
+                }
+            }
+        });
     });
     table.appendChild(newRow);
 }
@@ -60,7 +84,7 @@ $('#Result').on('click', function () {
     function findMatchingParentIndex(array, columnNames) {
         // 比較対象となる配列 (27番目と28番目) を取得
         const targetArrays = [array[27], array[28]];
-        
+
         // 各ターゲット配列に対して、すべての要素と比較 (0番目から26番目まで)
         targetArrays.forEach((targetArray, targetIndex) => {
             const targetLength = targetArray.length;
@@ -99,8 +123,8 @@ $('#Result').on('click', function () {
             const subArrayLength = Math.min(targetArray.length, parentArray[i].length, parentArray[k].length);
             for (let j = 0; j < subArrayLength; j++) {
                 if (targetArray[j] === "0" && parentArray[i][j] === "+" && parentArray[k][j] === "+") {
-                    matchingPairs.push([i, j])                    
-                    matchingPairs.push([k, j])                    
+                    matchingPairs.push([i, j])
+                    matchingPairs.push([k, j])
                 }
             }
         }
