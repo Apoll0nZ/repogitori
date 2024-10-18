@@ -15,14 +15,34 @@ function cloneRow(numberOfRows) {
         selectElements.forEach(select => {
             select.id = select.id + (i + 2);
         });
-        //1入力で+選択
+        // 共通のクラス名 (selected)
         const selectedElements = document.querySelectorAll('.selected');
-        selectedElements.forEach(select => {
-            select.addEventListener('keydown', function (event) {
+        selectedElements.forEach((select, index) => {
+            select.addEventListener('change', () => {
+                if (select.value === '+') {
+                    select.style.backgroundColor = 'red';
+                } else {
+                    select.style.backgroundColor = '';
+                }
+            });
+            select.addEventListener('keydown', (event) => {
                 if (event.key === '1') {
-                    const plusOption = this.querySelector('option[value="+"]');
+                    const plusOption = select.querySelector('option[value="+"]');
                     if (plusOption) {
                         plusOption.selected = true;
+                        select.dispatchEvent(new Event('change'));
+                    }
+                } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                    // 上下左右キーで移動する処理
+                    const direction = {
+                        ArrowUp: -1,
+                        ArrowDown: 1,
+                        ArrowLeft: -1,
+                        ArrowRight: 1
+                    }[event.key];
+                    const nextIndex = index + direction;
+                    if (nextIndex >= 0 && nextIndex < selectedElements.length) {
+                        selectedElements[nextIndex].focus();
                     }
                 }
             });
@@ -35,27 +55,72 @@ function pluscloneRow() {
     const lastRow = table.rows[table.rows.length - 1];
     const lastCellNumber = parseInt(lastRow.cells[0].textContent);
     const newRow = lastRow.cloneNode(true);
-    //newRow.cells[0].textContent = lastCellNumber + 1; // セル番号を12から順に増やす
+    newRow.cells[0].textContent = lastCellNumber + 1; // セル番号を12から順に増やす
     const selectElements = newRow.querySelectorAll("select");
     selectElements.forEach(select => {
         // selectのidを12から順に増やす
         select.id = select.id.substring(0, 7) + (lastCellNumber + 1);
     });
-    //1入力で+選択
+    table.appendChild(newRow);
+    // 共通のクラス名 (selected)
     const selectedElements = document.querySelectorAll('.selected');
-    selectedElements.forEach(select => {
-        select.addEventListener('keydown', function (event) {
+    selectedElements.forEach((select, index) => {
+        select.addEventListener('change', () => {
+            if (select.value === '+') {
+                select.style.backgroundColor = 'red';
+            } else {
+                select.style.backgroundColor = '';
+            }
+        });
+        select.addEventListener('keydown', (event) => {
             if (event.key === '1') {
-                const plusOption = this.querySelector('option[value="+"]');
+                const plusOption = select.querySelector('option[value="+"]');
                 if (plusOption) {
                     plusOption.selected = true;
+                    select.dispatchEvent(new Event('change'));
+                }
+            } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                // 上下左右キーで移動する処理
+                const direction = {
+                    ArrowUp: -1,
+                    ArrowDown: 1,
+                    ArrowLeft: -1,
+                    ArrowRight: 1
+                }[event.key];
+                const nextIndex = index + direction;
+                if (nextIndex >= 0 && nextIndex < selectedElements.length) {
+                    selectedElements[nextIndex].focus();
                 }
             }
         });
     });
-    table.appendChild(newRow);
 }
+$(document).ready(function () {
+    // 対象のセレクトボックスのIDを"mySelect"とする
+    $("#inputBox1").on("input", function () {
+        if ($(this).val() === "1") {
+            $(this).val("+");
+        }
+    });
+});
+// inputBox1のtr要素を取得
+const inputBox1 = document.getElementById('inputBox1');
 
+// inputBox1内の全てのselect要素を取得
+const selectElements = inputBox1.querySelectorAll('select');
+
+selectElements.forEach(select => {
+    select.addEventListener('keydown', function (event) {
+        if (event.key === '1') {
+            // 1キーが押された時の処理
+            // 例: "+"のオプションを選択
+            const plusOption = this.querySelector('option[value="+"]');
+            if (plusOption) {
+                plusOption.selected = true;
+            }
+        }
+    });
+});
 $('#Result').on('click', function () {
     // テーブル要素を取得
     const table = document.querySelector('table');
