@@ -1,13 +1,45 @@
+h1{
+  font-size: 25px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+h2{
+  font-size: 20px;
+  padding: 5px;
+}
 body {
-  line-height: 1.5;
+  line-height: 2;
   
+}
+#SexLinked {
+  word-break: break-all; /* 単語の途中で改行を許可 */
+  white-space: normal; /* 文字の空白を自然な表示に */
+  line-height: 1.5em; /* 行の高さを調整（調整が必要な場合） */
+  width: 35px; /* 任意の幅に調整してください */
+}
+button{
+  display:flex;
+  margin: 5px 12%;
+  text-align: center;
+}
+.resultBox{
+  margin: 3px 12%;
 }
 table {
   border-collapse: collapse;
   border: 2px solid green; /* 外枠 */
+  text-align: center;
+  margin: 0 auto;
 }
 table th, table td {
   border-style: solid dotted;/* 線種 */
   border-width: 2px; /* 線の太さ */
   border-color: green; /* 線色 */
+}
+.exBorder{
+  border: 1px solid black;
+  margin:0 5px;
+}
+.botumContent{
+  background-color: aliceblue;
 }
