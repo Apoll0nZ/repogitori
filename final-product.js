@@ -15,40 +15,38 @@ function cloneRow(numberOfRows) {
         selectElements.forEach(select => {
             select.id = select.id + (i + 2);
         });
-        // 共通のクラス名 (selected)
-        const selectedElements = document.querySelectorAll('.selected');
-        selectedElements.forEach((select, index) => {
-            select.addEventListener('change', () => {
-                if (select.value === '+') {
-                    select.style.backgroundColor = 'red';
-                } else {
-                    select.style.backgroundColor = '';
-                }
-            });
-            select.addEventListener('keydown', (event) => {
-                if (event.key === '1') {
-                    const plusOption = select.querySelector('option[value="+"]');
-                    if (plusOption) {
-                        plusOption.selected = true;
-                        select.dispatchEvent(new Event('change'));
-                    }
-                } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-                    // 上下左右キーで移動する処理
-                    const direction = {
-                        ArrowUp: -1,
-                        ArrowDown: 1,
-                        ArrowLeft: -1,
-                        ArrowRight: 1
-                    }[event.key];
-                    const nextIndex = index + direction;
-                    if (nextIndex >= 0 && nextIndex < selectedElements.length) {
-                        selectedElements[nextIndex].focus();
-                    }
-                }
-            });
-        });
         table.appendChild(newRow);
     }
+    // 共通のクラス名 (selected)
+    const selectedElements = document.querySelectorAll('.selected');
+    selectedElements.forEach((select, index) => {
+        select.addEventListener('change', () => {
+            if (select.value === '+') {
+                select.style.backgroundColor = 'red';
+            } else {
+                select.style.backgroundColor = '';
+            }
+        });
+        select.addEventListener('keydown', (event) => {
+            if (event.key === '1') {
+                const plusOption = select.querySelector('option[value="+"]');
+                if (plusOption) {
+                    plusOption.selected = true;
+                    select.dispatchEvent(new Event('change'));
+                }
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                // 上下左右キーで移動する処理
+                const direction = {
+                    ArrowLeft: -1,
+                    ArrowRight: 1
+                }[event.key];
+                const nextIndex = index + direction;
+                if (nextIndex >= 0 && nextIndex < selectedElements.length) {
+                    selectedElements[nextIndex].focus();
+                }
+            }
+        });
+    });
 };
 function pluscloneRow() {
     const table = document.getElementById("myTable");
