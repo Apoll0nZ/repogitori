@@ -35,7 +35,7 @@ function cloneRow(numberOfRows) {
                     select.dispatchEvent(new Event('change'));
                 }
             } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-                // 上下左右キーで移動する処理
+                // 上下左右キーで移動する処理をついか
                 const direction = {
                     ArrowLeft: -1,
                     ArrowRight: 1
