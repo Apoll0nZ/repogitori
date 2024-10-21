@@ -14,7 +14,7 @@ body {
 #SexLinked {
   word-break: break-all; /* 単語の途中で改行を許可 */
   white-space: normal; /* 文字の空白を自然な表示に */
-  line-height: 1.5em; /* 行の高さを調整（調整が必要な場合） */
+  line-height: 1.5em; /* 行の高さを調整 */
   width: 35px;
 }
 button{
