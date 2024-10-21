@@ -17,6 +17,36 @@ function cloneRow(numberOfRows) {
         });
         table.appendChild(newRow);
     }
+    // 共通のクラス名 (selected)
+    const selectedElements = document.querySelectorAll('.selected');
+    selectedElements.forEach((select, index) => {
+        select.addEventListener('change', () => {
+            if (select.value === '+') {
+                select.style.backgroundColor = 'red';
+            } else {
+                select.style.backgroundColor = '';
+            }
+        });
+        select.addEventListener('keydown', (event) => {
+            if (event.key === '1') {
+                const plusOption = select.querySelector('option[value="+"]');
+                if (plusOption) {
+                    plusOption.selected = true;
+                    select.dispatchEvent(new Event('change'));
+                }
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                // 上下左右キーで移動する処理
+                const direction = {
+                    ArrowLeft: -1,
+                    ArrowRight: 1
+                }[event.key];
+                const nextIndex = index + direction;
+                if (nextIndex >= 0 && nextIndex < selectedElements.length) {
+                    selectedElements[nextIndex].focus();
+                }
+            }
+        });
+    });
 };
 function pluscloneRow() {
     const table = document.getElementById("myTable");
@@ -30,8 +60,65 @@ function pluscloneRow() {
         select.id = select.id.substring(0, 7) + (lastCellNumber + 1);
     });
     table.appendChild(newRow);
+    // 共通のクラス名 (selected)
+    const selectedElements = document.querySelectorAll('.selected');
+    selectedElements.forEach((select, index) => {
+        select.addEventListener('change', () => {
+            if (select.value === '+') {
+                select.style.backgroundColor = 'red';
+            } else {
+                select.style.backgroundColor = '';
+            }
+        });
+        select.addEventListener('keydown', (event) => {
+            if (event.key === '1') {
+                const plusOption = select.querySelector('option[value="+"]');
+                if (plusOption) {
+                    plusOption.selected = true;
+                    select.dispatchEvent(new Event('change'));
+                }
+            } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                // 上下左右キーで移動する処理
+                const direction = {
+                    ArrowUp: -1,
+                    ArrowDown: 1,
+                    ArrowLeft: -1,
+                    ArrowRight: 1
+                }[event.key];
+                const nextIndex = index + direction;
+                if (nextIndex >= 0 && nextIndex < selectedElements.length) {
+                    selectedElements[nextIndex].focus();
+                }
+            }
+        });
+    });
 }
+$(document).ready(function () {
+    // 対象のセレクトボックスのIDを"mySelect"とする
+    $("#inputBox1").on("input", function () {
+        if ($(this).val() === "1") {
+            $(this).val("+");
+        }
+    });
+});
+// inputBox1のtr要素を取得
+const inputBox1 = document.getElementById('inputBox1');
 
+// inputBox1内の全てのselect要素を取得
+const selectElements = inputBox1.querySelectorAll('select');
+
+selectElements.forEach(select => {
+    select.addEventListener('keydown', function (event) {
+        if (event.key === '1') {
+            // 1キーが押された時の処理
+            // 例: "+"のオプションを選択
+            const plusOption = this.querySelector('option[value="+"]');
+            if (plusOption) {
+                plusOption.selected = true;
+            }
+        }
+    });
+});
 $('#Result').on('click', function () {
     // テーブル要素を取得
     const table = document.querySelector('table');
@@ -60,7 +147,7 @@ $('#Result').on('click', function () {
     function findMatchingParentIndex(array, columnNames) {
         // 比較対象となる配列 (27番目と28番目) を取得
         const targetArrays = [array[27], array[28]];
-        
+
         // 各ターゲット配列に対して、すべての要素と比較 (0番目から26番目まで)
         targetArrays.forEach((targetArray, targetIndex) => {
             const targetLength = targetArray.length;
@@ -99,8 +186,8 @@ $('#Result').on('click', function () {
             const subArrayLength = Math.min(targetArray.length, parentArray[i].length, parentArray[k].length);
             for (let j = 0; j < subArrayLength; j++) {
                 if (targetArray[j] === "0" && parentArray[i][j] === "+" && parentArray[k][j] === "+") {
-                    matchingPairs.push([i, j])                    
-                    matchingPairs.push([k, j])                    
+                    matchingPairs.push([i, j])
+                    matchingPairs.push([k, j])
                 }
             }
         }
