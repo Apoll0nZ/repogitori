@@ -19,11 +19,11 @@ body {
 }
 button{
   display:flex;
-  margin: 5px 12%;
-  text-align: center;
+  margin: 5px 435px;
+
 }
 .resultBox{
-  margin: 3px 12%;
+  margin: 3px 435px;
 }
 table {
   border-collapse: collapse;
