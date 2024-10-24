@@ -34,11 +34,11 @@ function cloneRow(numberOfRows) {
                     plusOption.selected = true;
                     select.dispatchEvent(new Event('change'));
                 }
-            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            } else if (event.key === 'a' || event.key === 'd') {
                 // 上下左右キーで移動する処理をついか
                 const direction = {
-                    ArrowLeft: -1,
-                    ArrowRight: 1
+                    a: -1,
+                    d: 1
                 }[event.key];
                 const nextIndex = index + direction;
                 if (nextIndex >= 0 && nextIndex < selectedElements.length) {
@@ -77,13 +77,11 @@ function pluscloneRow() {
                     plusOption.selected = true;
                     select.dispatchEvent(new Event('change'));
                 }
-            } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-                // 上下左右キーで移動する処理
+            } else if (event.key === 'a' || event.key === 'd') {
+                // 上下左右キーで移動する処理をついか
                 const direction = {
-                    ArrowUp: -1,
-                    ArrowDown: 1,
-                    ArrowLeft: -1,
-                    ArrowRight: 1
+                    a: -1,
+                    d: 1
                 }[event.key];
                 const nextIndex = index + direction;
                 if (nextIndex >= 0 && nextIndex < selectedElements.length) {
