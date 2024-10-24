@@ -34,14 +34,16 @@ function cloneRow(numberOfRows) {
                     plusOption.selected = true;
                     select.dispatchEvent(new Event('change'));
                 }
-            } else if (event.key === 'a' || event.key === 'd') {
-                // 上下左右キーで移動する処理をついか
-                const direction = {
-                    a: -1,
-                    d: 1
-                }[event.key];
-                const nextIndex = index + direction;
-                if (nextIndex >= 0 && nextIndex < selectedElements.length) {
+            } if (event.key === 'a') {
+                // aキーを押したときの処理 (例: 前の要素にフォーカス)
+                const prevIndex = index - 1;
+                if (prevIndex >= 0) {
+                    selectedElements[prevIndex].focus();
+                }
+            } else if (event.key === 'd') {
+                // dキーを押したときの処理 (例: 次の要素にフォーカス)
+                const nextIndex = index + 1;
+                if (nextIndex < selectedElements.length) {
                     selectedElements[nextIndex].focus();
                 }
             }
@@ -77,14 +79,16 @@ function pluscloneRow() {
                     plusOption.selected = true;
                     select.dispatchEvent(new Event('change'));
                 }
-            } else if (event.key === 'a' || event.key === 'd') {
-                // 上下左右キーで移動する処理をついか
-                const direction = {
-                    a: -1,
-                    d: 1
-                }[event.key];
-                const nextIndex = index + direction;
-                if (nextIndex >= 0 && nextIndex < selectedElements.length) {
+            } if (event.key === 'a') {
+                // aキーを押したときの処理 (例: 前の要素にフォーカス)
+                const prevIndex = index - 1;
+                if (prevIndex >= 0) {
+                    selectedElements[prevIndex].focus();
+                }
+            } else if (event.key === 'd') {
+                // dキーを押したときの処理 (例: 次の要素にフォーカス)
+                const nextIndex = index + 1;
+                if (nextIndex < selectedElements.length) {
                     selectedElements[nextIndex].focus();
                 }
             }
